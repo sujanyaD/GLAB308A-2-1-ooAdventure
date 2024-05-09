@@ -6,6 +6,7 @@ const adventurer = {
     companion: {
       name: "Leo",
       type: "Cat",
+      
     },
     roll(mod = 0) {
       const result = Math.floor(Math.random() * 20) + 1 + mod;
@@ -25,10 +26,13 @@ const adventurer = {
 
   //part 2
   class Character {
+    //Add a static MAX_HEALTH property to the Character class, equal to 100.
+    static Max_HEALTH=100;
     constructor (name) {
       this.name = name;
       this.health = 100;
       this.inventory = [];
+     
     }
     roll(mod=0){
         const result = Math.floor(Math.random() * 20) + 1 + mod;
@@ -51,9 +55,12 @@ robin.companion.companion.roll()
 
  //part 3 Class Features
  class Adventurer extends Character {
+  // added static roles as array to adventurer class
+  static roles= ["Fighter","Healer","WIzard"];
     constructor (name, role) {
       super(name);
-      // Adventurers have specialized roles.
+      // checking roles using indexof Method by comparing it with -1
+      if(this.roles.indexOf(role)>-1)
       this.role = role;
       // Every adventurer starts with a bed and 50 gold coins.
       this.inventory.push("bedroll", "50 gold coins");
@@ -61,7 +68,9 @@ robin.companion.companion.roll()
       this.stamina=100;
       this.level=1;
       this.experience=0;
+ 
     }
+   
     // Adventurers have the ability to scout ahead of them.
     scout () {
       console.log(`${this.name} is scouting ahead...`);
@@ -90,6 +99,9 @@ Robin.companion.companion = comp2
 Robin.scout();
 
 console.log(Robin)
+
+
+
 
 
 
