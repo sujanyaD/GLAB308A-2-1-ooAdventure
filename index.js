@@ -60,7 +60,7 @@ robin.companion.companion.roll()
     constructor (name, role) {
       super(name);
       // checking roles using indexof Method by comparing it with -1
-      if(this.roles.indexOf(role)>-1)
+      if(Adventurer.roles.indexOf(role)>-1)
       this.role = role;
       // Every adventurer starts with a bed and 50 gold coins.
       this.inventory.push("bedroll", "50 gold coins");
